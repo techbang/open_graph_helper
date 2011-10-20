@@ -4,29 +4,29 @@ require 'open_graph_helper/railtie' if defined?(Rails)
 # http://developers.facebook.com/docs/opengraph/
 module OpenGraphHelper
   def og_title(content)
-    "<meta property='og:title' content='#{content}'/>"
+    tag(:meta, { :property => "og:title", :content => content }, true)
   end
 
   def og_description(content)
     content = html_escape(strip_tags(content))
-    "<meta property='og:description' content='#{truncate(content , :length => 100)}'/>"
+    tag(:meta, { :property => "og:description", :content => truncate(content , :length => 100) }, true)
   end
 
   def og_type(content = "article")
-    "<meta property='og:type' content='#{content}'/>"
+    tag(:meta, { :property => "og:type", :content => content }, true)
   end
 
   # 50x50 px ~ 150x150 px
   def og_image(content)
-    "<meta property='og:image' content='#{content}'/>"
+    tag(:meta, { :property => "og:image", :content => content }, true)
   end
 
   def og_url(content)
-    "<meta property='og:url' content='#{content}'/>"
+    tag(:meta, { :property => "og:url", :content => content }, true)
   end
 
   def og_site_name(content)
-    "<meta property='og:site_name' content='#{content}'/>"
+    tag(:meta, { :property => "og:site_name", :content => content }, true)
   end
 
   def og_fb_app_id(content)
