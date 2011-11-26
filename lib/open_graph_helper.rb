@@ -1,3 +1,4 @@
+# coding: utf-8  
 require "open_graph_helper/version"
 require 'open_graph_helper/railtie' if defined?(Rails)
 
