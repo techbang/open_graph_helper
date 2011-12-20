@@ -57,11 +57,14 @@ module OpenGraphHelper
   def fb_like_button(like_url, type = "button_count", width = 90)
     options = {
       "class" => "fb-like",
-      "data-href" => like_url,
-      "data-send" => false,
-      "data-layout" => type,
-      "data-show-faces" => false,
-      "data-width" => width
+      "data" =>
+      {
+        "href" => like_url,
+        "send" => false,
+        "layout" => type,
+        "show-faces" => false,
+        "width" => width
+      }
     }
     content_tag(:div, "", options)
   end
