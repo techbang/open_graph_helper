@@ -45,14 +45,6 @@ module OpenGraphHelper
     output
   end
 
-  # types: button_count, standard
-  def fb_like_iframe(like_url, type = "button_count", size = "85x21")
-    width, height = size.split("x")
-    src = "http://www.facebook.com/plugins/like.php?href=#{like_url}&locale=zh_TW&layout=#{type}&show_faces=true&action=like&colorscheme=light&width=#{width}&height=#{height}"
-    style = "border:none; overflow:hidden; width:#{width}px; height:#{height}px;"
-    content_tag(:iframe, "", :src => src, :scrolling => "no", :frameborder => "0", :style => style, :allowtransparency => "true")
-  end
-
   # types: button_count, standard, box_count
   def fb_like(like_url, custom_options={})
     options = {
