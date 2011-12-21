@@ -38,49 +38,51 @@ module OpenGraphHelper
     tag(:meta, { :property => "fb:admins", :content => content }, true)
   end
 
-  # types: icon, icon_link, button, button_count, box_count
-  def fb_share_link(share_url, type = "button_count", script = false)
-    output = link_to("分享", "http://www.facebook.com/sharer.php", :name => "fb_share", :share_url => share_url, :type => type, :class => "facebook fb-share")
-    output << content_tag(:script, "", :src => "http://static.ak.fbcdn.net/connect.php/js/FB.Share", :type => "text/javascript") if script
-    output
-  end
-
-  # types: button_count, standard
-  def fb_like_iframe(like_url, type = "button_count", size = "85x21")
-    width, height = size.split("x")
-    src = "http://www.facebook.com/plugins/like.php?href=#{like_url}&locale=zh_TW&layout=#{type}&show_faces=true&action=like&colorscheme=light&width=#{width}&height=#{height}"
-    style = "border:none; overflow:hidden; width:#{width}px; height:#{height}px;"
-    content_tag(:iframe, "", :src => src, :scrolling => "no", :frameborder => "0", :style => style, :allowtransparency => "true")
-  end
-
   # types: button_count, standard, box_count
-  def fb_like_button(like_url, type = "button_count", width = 90)
+  def fb_like(like_url, custom_options={})
     options = {
-      "class" => "fb-like",
-      "data" =>
-      {
-        "href" => like_url,
-        "send" => false,
-        "layout" => type,
-        "show-faces" => false,
-        "width" => width
-      }
+      :href => like_url,
+      :send => false,
+      :layout => "button_count",
+      :show_faces => false,
+      :width => 90
     }
-    content_tag(:div, "", options)
+
+    options.merge! custom_options
+
+    content_tag(:div, "", :class => "fb-like", :data => options)
   end
 
-  def fb_likebox_iframe(like_url, size = "240x65")
-    width, height = size.split("x")
-    src =  "http://www.facebook.com/plugins/likebox.php?href=#{like_url}&connections=0&stream=false&header=true&colorscheme=light&width=#{width}&height=#{height}"
-    style = "border:none; overflow:hidden; width:#{width}px; height:#{height}px;"
-    content_tag(:iframe, "", :src => src, :scrolling => "no", :frameborder => "0", :style => style, :allowtransparency => "true")
+  def fb_likebox(page_url, custom_options={})
+    options = {
+      :href => page_url,
+      :width => 240,
+      :height => 65,
+      :show_faces => false,
+      :stream => false,
+      :header => true
+    }
+
+    options.merge! custom_options
+
+    content_tag(:div, "", :class => "fb-like-box", :data => options)
   end
 
-  def fb_recommendation_iframe(site_url, size = "300x380")
-    width, height = size.split("x")
-    src = "http://www.facebook.com/plugins/recommendations.php?site=#{site_url}&header=false&colorscheme=light&border_color=%23CCCCCC&width=#{width}&height=#{height}"
-    style = "border:none; overflow:hidden; width:#{width}px; height:#{height}px;"
-    content_tag(:iframe, "", :src => src, :scrolling => "no", :frameborder => "0", :style => style, :allowtransparency => "true")
+  def fb_recommendations(site_url, custom_options={})
+    options = {
+      :site => site_url,
+      :width => 300,
+      :height => 380,
+      :header => false,
+      :colorscheme => "light",
+      :border_color => "#CCC"
+      # :linktarget => "_blank"
+    }
+
+    options.merge! custom_options
+
+    content_tag(:div, "", :class => "fb-recommendations", :data => options)
   end
+
 end
 
