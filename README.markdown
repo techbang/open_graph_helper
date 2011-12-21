@@ -57,7 +57,7 @@ og_description("Lorem Ipsum ...")
 #=> <meta property="og:description" cotent="Lorem Ipsum ..."/>
 
 og_fb_admins("123456,789012") # don't send an array
-<meta property="fb:admins" content="123456,789012"/>
+#=> <meta property="fb:admins" content="123456,789012"/>
 
 og_fb_app_id("1234567890")
 #=> <meta property="fb:app_id" content="1234567890"/>
