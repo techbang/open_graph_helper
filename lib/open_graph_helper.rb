@@ -38,13 +38,6 @@ module OpenGraphHelper
     tag(:meta, { :property => "fb:admins", :content => content }, true)
   end
 
-  # types: icon, icon_link, button, button_count, box_count
-  def fb_share_link(share_url, type = "button_count", script = false)
-    output = link_to("分享", "http://www.facebook.com/sharer.php", :name => "fb_share", :share_url => share_url, :type => type, :class => "facebook fb-share")
-    output << content_tag(:script, "", :src => "http://static.ak.fbcdn.net/connect.php/js/FB.Share", :type => "text/javascript") if script
-    output
-  end
-
   # types: button_count, standard, box_count
   def fb_like(like_url, custom_options={})
     options = {
