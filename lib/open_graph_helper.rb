@@ -54,19 +54,18 @@ module OpenGraphHelper
   end
 
   # types: button_count, standard, box_count
-  def fb_like_button(like_url, type = "button_count", width = 90)
+  def fb_like(like_url, custom_options={})
     options = {
-      "class" => "fb-like",
-      "data" =>
-      {
-        "href" => like_url,
-        "send" => false,
-        "layout" => type,
-        "show-faces" => false,
-        "width" => width
-      }
+      :href => like_url,
+      :send => false,
+      :layout => "button_count",
+      :show_faces => false,
+      :width => 90
     }
-    content_tag(:div, "", options)
+
+    options.merge! custom_options
+
+    content_tag(:div, "", :class => "fb-like", :data => options)
   end
 
   def fb_likebox(page_url, custom_options={})
