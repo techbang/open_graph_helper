@@ -1,8 +1,11 @@
 # Open Graph Helper
 
-Easily put common [Open Graph](http://developers.facebook.com/docs/opengraph/) meta tags and [Facebook Social Plugin](http://developers.facebook.com/docs/plugins/) tags in your Rails application.
 
-Currently only a small subset of these tags are supported (see below).  Pull requests are welcome.
+Common [Open Graph](http://developers.facebook.com/docs/opengraph/) meta tag and [Facebook Social Plugin](http://developers.facebook.com/docs/plugins/) tag helpers.
+
+There are only small subsets of tags are supported (for now). 
+
+Pull requests are welcome.
 
 The Facebook Social Plugins are rendered in HTML5 version (a `<div>`).  Their default options are tuned for Techbang.  Override them by passing a Hash; see below.
 
@@ -12,19 +15,21 @@ Add this to your `Gemfile`:
 
     gem 'open_graph_helper'
 
-If you want to use the edge code on Github, specify the `:git` option.
+If you want to use the edge version on Github, specify the `:git` option.
 
     gem 'open_graph_helper', :git => 'git://github.com/techbang/open_graph_helper.git'
 
-And then type
+And run
 
     bundle install
 
 to install this plug-in.
 
-Also, to make the Social Plugin work, you need to include JavaScript SDK in your page.  See [Facebook JavaScript SDK](http://developers.facebook.com/docs/reference/javascript/) for more details.  If you're using [Facebooker2](https://github.com/mmangino/facebooker2), you can include the SDK by `<%= fb_connect_async_js %>`.
+You need to include JavaScript SDK in your page to make  Social Plugin works.  See [Facebook JavaScript SDK](http://developers.facebook.com/docs/reference/javascript/) for more details.  
 
-Finally, to make the `<meta>` tags work, don't forget to add XML namespaces to the `<html>` tag: 
+If you're want to use [Facebooker2](https://github.com/mmangino/facebooker2), please include the SDK by `<%= fb_connect_async_js %>`.
+
+The last thing: don't forget to add XML namespaces to the `<html>` tag, or `<meta>` tags won't work.
 
 ``` html
 <html xmlns="http://www.w3.org/1999/xhtml"
@@ -65,7 +70,7 @@ og_fb_app_id("1234567890")
 
 ## Facebook Social Plugins
 
-There are some default options that was tuned for Techbang sites and may not fit your needs.  Override them by passing a Hash as the last parameter.
+There are some default options that was optimized for [Techbang](http://www.techbang.com.tw) sites and may not suits for  your needs.  Override them by passing a Hash as the last argument.
 
 ### Like Button
 
