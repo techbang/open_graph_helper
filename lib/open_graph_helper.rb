@@ -84,5 +84,16 @@ module OpenGraphHelper
     content_tag(:div, "", :class => "fb-recommendations", :data => options)
   end
 
+  def fb_comments(url, custom_options={})
+    options = {
+      :href => url,
+      :num_posts => 10
+    }
+
+    options.merge! custom_options
+
+    content_tag(:div, "", :class => "fb-comments", :data => options)
+  end
+
 end
 
