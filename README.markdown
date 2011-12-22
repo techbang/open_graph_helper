@@ -139,7 +139,7 @@ Example:
 fb_recommendations("www.example.com")
 #=> <div class="fb-recommendations" data-border-color="#CCC" data-colorscheme="light" data-header="false" data-height="380" data-site="www.example.com" data-width="300"></div>
 
-fb_recommendations("http://www.facebook.com/example", :header => true, :colorscheme => "dark")
+fb_recommendations("www.example.com", :header => true, :colorscheme => "dark")
 #=> <div class="fb-recommendations" data-border-color="#CCC" data-colorscheme="dark" data-header="true" data-height="380" data-site="www.example.com" data-width="300"></div>
 ```
 
