@@ -38,6 +38,10 @@ module OpenGraphHelper
     tag(:meta, { :property => "fb:admins", :content => content }, true)
   end
 
+  def social_plugin(plugin_name, options)
+    content_tag(:div, "", :class => "fb-#{plugin_name.to_s}", :data => options)
+  end
+
   # types: button_count, standard, box_count
   def fb_like(like_url, custom_options={})
     options = {
@@ -50,7 +54,7 @@ module OpenGraphHelper
 
     options.merge! custom_options
 
-    content_tag(:div, "", :class => "fb-like", :data => options)
+    social_plugin("like", options)
   end
 
   def fb_likebox(page_url, custom_options={})
@@ -65,7 +69,7 @@ module OpenGraphHelper
 
     options.merge! custom_options
 
-    content_tag(:div, "", :class => "fb-like-box", :data => options)
+    social_plugin("like-box", options)
   end
 
   def fb_recommendations(site_url, custom_options={})
@@ -81,7 +85,7 @@ module OpenGraphHelper
 
     options.merge! custom_options
 
-    content_tag(:div, "", :class => "fb-recommendations", :data => options)
+    social_plugin("recommendations", options)
   end
 
   def fb_comments(url, custom_options={})
@@ -92,7 +96,7 @@ module OpenGraphHelper
 
     options.merge! custom_options
 
-    content_tag(:div, "", :class => "fb-comments", :data => options)
+    social_plugin("comments", options)
   end
 
 end
