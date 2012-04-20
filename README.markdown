@@ -7,7 +7,7 @@ There are only small subsets of tags are supported (for now).
 
 Pull requests are welcome.
 
-The Facebook Social Plugins are rendered in HTML5 version (a `<div>`).  Their default options are tuned for Techbang.  Override them by passing a Hash; see below.
+The Facebook Social Plugins can be rendered in HTML5 version (default) or `<iframe>` version.  Their default options are tuned for Techbang.  Override them by passing a Hash; see below.
 
 ## Usage
 
