@@ -17,7 +17,7 @@ Add this to your `Gemfile`:
 
 If you want to use the edge version on Github, specify the `:git` option.
 
-    gem 'open_graph_helper', :git => 'git://github.com/techbang/open_graph_helper.git'
+    gem 'open_graph_helper', :github => 'techbang/open_graph_helper'
 
 And run
 
@@ -25,9 +25,15 @@ And run
 
 to install this plug-in.
 
-You need to include JavaScript SDK in your page to make  Social Plugin works.  See [Facebook JavaScript SDK](http://developers.facebook.com/docs/reference/javascript/) for more details.  
+For Social Plugins, OpenGraphHelper provides 2 versions for that: the new `:html5` and legacy `:iframe`.
 
-If you're want to use [Facebooker2](https://github.com/mmangino/facebooker2), please include the SDK by `<%= fb_connect_async_js %>`.
+`:html5` version is the default option and requires JavaScript SDK.  See [Facebook JavaScript SDK](http://developers.facebook.com/docs/reference/javascript/) for more details.  If you're using [Facebooker2](https://github.com/mmangino/facebooker2), please include the SDK by `<%= fb_connect_async_js %>`.
+
+To switch to `:iframe` version, you need an initializer.  Name it, say, `open_graph_helper.rb`, with one line of content:
+
+```ruby
+OpenGraphHelper::SOCIAL_PLUGIN_VERSION = :iframe # HTML5 + JS SDK doesn't need this
+```
 
 The last thing: don't forget to add XML namespaces to the `<html>` tag, or `<meta>` tags won't work.
 
