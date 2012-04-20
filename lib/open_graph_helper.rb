@@ -4,6 +4,8 @@ require 'open_graph_helper/railtie' if defined?(Rails)
 
 # http://developers.facebook.com/docs/opengraph/
 module OpenGraphHelper
+  SOCIAL_PLUGIN_VERSION = :html5
+
   def og_title(content)
     tag(:meta, { :property => "og:title", :content => content }, true)
   end
@@ -39,7 +41,18 @@ module OpenGraphHelper
   end
 
   def social_plugin(plugin_name, options)
-    content_tag(:div, "", :class => "fb-#{plugin_name.to_s}", :data => options)
+    case SOCIAL_PLUGIN_VERSION
+    when :html5
+      content_tag(:div, "", :class => "fb-#{plugin_name.to_s}", :data => options)
+    when :iframe
+      width = options.delete(:width)
+      height = options.delete(:height)
+      style = "border:none; overflow:hidden; width:#{width}px; height:#{height}px;"
+      src = "http://www.facebook.com/plugins/#{plugin_name}.php?#{options.to_param}"
+      content_tag(:iframe, "", :src => src, :scrolling => "no", :frameborder => "0", :style => style, :allowtransparency => "true")
+    else
+      raise "Unknown Social Plugin Version: #{SOCIAL_PLUGIN_VERSION}"
+    end
   end
 
   # types: button_count, standard, box_count
