@@ -67,12 +67,32 @@ og_site_name("IMDb")
 og_description("Lorem Ipsum ...")
 #=> <meta property="og:description" cotent="Lorem Ipsum ..."/>
 
-og_fb_admins("123456,789012") # don't send an array
-#=> <meta property="fb:admins" content="123456,789012"/>
+og_fb_admins(%w(123456 789012)) # Accepts an Array for multiple admins
+#=> <meta property="fb:admins" content="123456"/>
+#   <meta property="fb:admins" content="789012"/>
 
 og_fb_app_id("1234567890")
 #=> <meta property="fb:app_id" content="1234567890"/>
 ```
+
+### Note on Multiple-Value (e.g. `fb:admins`)
+
+According to Open Graph Protocol, multiple-value should be represented as an [Array](http://ogp.me/#array), not separated by a single comma `,` (U+002C).
+
+This pitfall was found when assigning admins for [Facebook Comments Plug-In](https://developers.facebook.com/docs/reference/plugins/comments/). Although the document says:
+
+> To add multiple moderators, separate the uids by comma without spaces.
+
+It does actually not working, and a parser error will be warned by [Open Graph Debugger](https://developers.facebook.com/tools/debug/). A working example should like this:
+
+```html
+<meta property="fb:admins" content="123456">
+<meta property="fb:admins" content="789012">
+```
+
+Therefore, OpenGraphHelper's `og_fb_admins` accepts an array, in which situation it maps each element to a single `fb:admins` meta tag, and concatenates them in a single line.
+
+See this QA: http://stackoverflow.com/a/12007788
 
 ## Facebook Social Plugins
 
