@@ -36,8 +36,16 @@ module OpenGraphHelper
     tag(:meta, { :property => "fb:app_id", :content => content }, true)
   end
 
-  def og_fb_admins(content)
-    tag(:meta, { :property => "fb:admins", :content => content }, true)
+  def og_fb_admins(admins)
+    # Multiple fb:admins should be specified in separated meta tags
+    # See Issue #3
+    if admins.is_a? Array
+      admins.map { |admin|
+        tag(:meta, { :property => "fb:admins", :content => admin }, true)
+      }.join.html_safe
+    else
+      tag(:meta, { :property => "fb:admins", :content => admins }, true)
+    end
   end
 
   def social_plugin(plugin_name, options)
