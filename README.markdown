@@ -145,30 +145,6 @@ fb_page("https://www.facebook.com/facebook", small_header: false, width: 200, ta
 #=> <div class="fb-page" data-href="https://www.facebook.com/facebook" data-small-header="false" data-width="200" data-tabs="timeline" data-adapt-container-width="false" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/facebook" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/facebook">Facebook</a></blockquote></div>
 ```
 
-### Like Box
-
-Usage: `fb_like_box(page_url, options={})`
-
-The default options are:
-
-    :width => 240,
-    :height => 65,
-    :show_faces => false,
-    :stream => false,
-    :header => true
-
-For more options, see [Facebook Like Box Documentation](http://developers.facebook.com/docs/reference/plugins/like-box/)
-
-Example:
-
-``` ruby
-fb_like_box("http://www.facebook.com/example")
-#=> <div class="fb-like-box" data-header="true" data-height="65" data-href="http://www.facebook.com/example" data-show-faces="false" data-stream="false" data-width="240"></div>
-
-fb_like_box("http://www.facebook.com/example", :width => 180, :show_faces => true)
-#=> <div class="fb-like-box" data-header="true" data-height="65" data-href="http://www.facebook.com/example" data-show-faces="true" data-stream="false" data-width="180"></div>
-```
-
 ### Recommendations
 
 Usage: `fb_recommendations(site_url, options={})`

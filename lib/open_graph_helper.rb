@@ -93,21 +93,6 @@ module OpenGraphHelper
     social_plugin("page", options)
   end
 
-  def fb_likebox(page_url, custom_options={})
-    options = {
-      :href => page_url,
-      :width => 240,
-      :height => 65,
-      :show_faces => false,
-      :stream => false,
-      :header => true
-    }
-
-    options.merge! custom_options
-
-    social_plugin("like-box", options)
-  end
-
   def fb_recommendations(site_url, custom_options={})
     options = {
       :site => site_url,
