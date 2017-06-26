@@ -3,7 +3,7 @@
 
 Common [Open Graph](http://developers.facebook.com/docs/opengraph/) meta tag and [Facebook Social Plugin](http://developers.facebook.com/docs/plugins/) tag helpers.
 
-There are only small subsets of tags are supported (for now). 
+There are only small subsets of tags are supported (for now).
 
 Pull requests are welcome.
 
@@ -104,21 +104,22 @@ Usage: `fb_like(like_url, options={})`
 
 The default options are:
 
-    :send => false,
     :layout => "button_count",
+    :action => "like",
+    :share => false,
     :show_faces => false,
     :width => 90
 
-For more options, see [Facebook Like Button Documentation](http://developers.facebook.com/docs/reference/plugins/like/)
+For more options, see [Facebook Like Button Documentation](https://developers.facebook.com/docs/plugins/like-button)
 
 Example:
 
 ``` ruby
 fb_like("http://example.com")
-#=> <div class="fb-like" data-href="http://example.com" data-layout="button_count" data-send="false" data-show-faces="false" data-width="90"></div>
+#=> <div class="fb-like" data-href="http://example.com" data-layout="button_count" data-action="like" data-share="false" data-show-faces="false" data-width="90"></div>
 
 fb_like("http://example.com", :width => 120, :layout => "standard")
-#=> <div class="fb-like" data-href="http://example.com" data-layout="standard" data-send="false" data-show-faces="false" data-width="120"></div>
+#=> <div class="fb-like" data-href="http://example.com" data-layout="standard" data-action="like" data-share="false" data-show-faces="false" data-width="120"></div>
 ```
 
 ### Like Box

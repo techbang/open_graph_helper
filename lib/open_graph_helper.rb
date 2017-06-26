@@ -51,12 +51,12 @@ module OpenGraphHelper
   def social_plugin(plugin_name, options)
     case SOCIAL_PLUGIN_VERSION
     when :html5
-      content_tag(:div, "", :class => "fb-#{plugin_name.to_s}", :data => options)
+      content_tag(:div, "", class: "fb-#{plugin_name.to_s}", data: options)
     when :iframe
       width = options.delete(:width)
       height = options.delete(:height)
       style = "border:none; overflow:hidden; width:#{width}px; height:#{height}px;"
-      src = "http://www.facebook.com/plugins/#{plugin_name}.php?#{options.to_param}"
+      src = "https://www.facebook.com/plugins/#{plugin_name}.php?#{options.to_param}"
       content_tag(:iframe, "", :src => src, :scrolling => "no", :frameborder => "0", :style => style, :allowtransparency => "true")
     else
       raise "Unknown Social Plugin Version: #{SOCIAL_PLUGIN_VERSION}"
@@ -66,11 +66,12 @@ module OpenGraphHelper
   # types: button_count, standard, box_count
   def fb_like(like_url, custom_options={})
     options = {
-      :href => like_url,
-      :send => false,
-      :layout => "button_count",
-      :show_faces => false,
-      :width => 90
+      href: like_url,
+      layout: "button_count",
+      action: "like",
+      share: false,
+      show_faces: false,
+      width: 90
     }
 
     options.merge! custom_options
