@@ -145,30 +145,6 @@ fb_page("https://www.facebook.com/facebook", small_header: false, width: 200, ta
 #=> <div class="fb-page" data-href="https://www.facebook.com/facebook" data-small-header="false" data-width="200" data-tabs="timeline" data-adapt-container-width="false" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/facebook" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/facebook">Facebook</a></blockquote></div>
 ```
 
-### Recommendations
-
-Usage: `fb_recommendations(site_url, options={})`
-
-The default options are:
-
-    :width => 300,
-    :height => 380,
-    :header => false,
-    :colorscheme => "light",
-    :border_color => "#CCC"
-
-For more options, see [Facebook Recommendations Documentation](http://developers.facebook.com/docs/reference/plugins/recommendations/)
-
-Example:
-
-``` ruby
-fb_recommendations("www.example.com")
-#=> <div class="fb-recommendations" data-border-color="#CCC" data-colorscheme="light" data-header="false" data-height="380" data-site="www.example.com" data-width="300"></div>
-
-fb_recommendations("www.example.com", :header => true, :colorscheme => "dark")
-#=> <div class="fb-recommendations" data-border-color="#CCC" data-colorscheme="dark" data-header="true" data-height="380" data-site="www.example.com" data-width="300"></div>
-```
-
 # License
 
 This software is released under the MIT License

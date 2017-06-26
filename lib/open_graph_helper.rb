@@ -93,22 +93,6 @@ module OpenGraphHelper
     social_plugin("page", options)
   end
 
-  def fb_recommendations(site_url, custom_options={})
-    options = {
-      :site => site_url,
-      :width => 300,
-      :height => 380,
-      :header => false,
-      :colorscheme => "light",
-      :border_color => "#CCC"
-      # :linktarget => "_blank"
-    }
-
-    options.merge! custom_options
-
-    social_plugin("recommendations", options)
-  end
-
   def fb_comments(url, custom_options={})
     options = {
       :href => url,
