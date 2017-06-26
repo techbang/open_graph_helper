@@ -122,6 +122,29 @@ fb_like("http://example.com", :width => 120, :layout => "standard")
 #=> <div class="fb-like" data-href="http://example.com" data-layout="standard" data-action="like" data-share="false" data-show-faces="false" data-width="120"></div>
 ```
 
+### Page
+
+Usage: `fb_page(fans_page_url, options={})`
+
+The default options are:
+
+    :small_header => true,
+    :adapt_container_width => true,
+    :hide_cover => false,
+    :show_facepile => false
+
+For more options, see [Facebook Page Plugin Documentation](https://developers.facebook.com/docs/plugins/page-plugin)
+
+Example:
+
+``` ruby
+fb_page("https://www.facebook.com/facebook")
+#=> <div class="fb-page" data-href="https://www.facebook.com/facebook" data-small-header="true", data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/facebook" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/facebook">Facebook</a></blockquote></div>
+
+fb_page("https://www.facebook.com/facebook", small_header: false, width: 200, tabs: "timeline", adapt_container_width: false)
+#=> <div class="fb-page" data-href="https://www.facebook.com/facebook" data-small-header="false" data-width="200" data-tabs="timeline" data-adapt-container-width="false" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/facebook" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/facebook">Facebook</a></blockquote></div>
+```
+
 ### Like Box
 
 Usage: `fb_like_box(page_url, options={})`

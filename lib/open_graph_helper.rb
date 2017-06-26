@@ -79,6 +79,20 @@ module OpenGraphHelper
     social_plugin("like", options)
   end
 
+  def fb_page(fans_page_url, custom_options={})
+    options = {
+      href: fans_page_url,
+      small_header: true,
+      adapt_container_width: true,
+      hide_cover: false,
+      show_facepile: false
+    }
+
+    options.merge! custom_options
+
+    social_plugin("page", options)
+  end
+
   def fb_likebox(page_url, custom_options={})
     options = {
       :href => page_url,
