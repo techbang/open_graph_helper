@@ -17,7 +17,7 @@ Add this to your `Gemfile`:
 
 If you want to use the edge version on Github, specify the `:git` option.
 
-    gem 'open_graph_helper', :github => 'techbang/open_graph_helper'
+    gem 'open_graph_helper', github: 'techbang/open_graph_helper'
 
 And run
 
@@ -104,11 +104,11 @@ Usage: `fb_like(like_url, options={})`
 
 The default options are:
 
-    :layout => "button_count",
-    :action => "like",
-    :share => false,
-    :show_faces => false,
-    :width => 90
+    layout: "button_count",
+    action: "like",
+    share: false,
+    show_faces: false,
+    width: 90
 
 For more options, see [Facebook Like Button Documentation](https://developers.facebook.com/docs/plugins/like-button)
 
@@ -118,7 +118,7 @@ Example:
 fb_like("http://example.com")
 #=> <div class="fb-like" data-href="http://example.com" data-layout="button_count" data-action="like" data-share="false" data-show-faces="false" data-width="90"></div>
 
-fb_like("http://example.com", :width => 120, :layout => "standard")
+fb_like("http://example.com", width: 120, layout: "standard")
 #=> <div class="fb-like" data-href="http://example.com" data-layout="standard" data-action="like" data-share="false" data-show-faces="false" data-width="120"></div>
 ```
 
@@ -128,10 +128,10 @@ Usage: `fb_page(fans_page_url, options={})`
 
 The default options are:
 
-    :small_header => true,
-    :adapt_container_width => true,
-    :hide_cover => false,
-    :show_facepile => false
+    small_header: true,
+    adapt_container_width: true,
+    hide_cover: false,
+    show_facepile: false
 
 For more options, see [Facebook Page Plugin Documentation](https://developers.facebook.com/docs/plugins/page-plugin)
 

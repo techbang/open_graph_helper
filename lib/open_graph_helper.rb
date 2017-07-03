@@ -7,33 +7,33 @@ module OpenGraphHelper
   SOCIAL_PLUGIN_VERSION = :html5
 
   def og_title(content)
-    tag(:meta, { :property => "og:title", :content => content }, true)
+    tag(:meta, { property: "og:title", content: content }, true)
   end
 
   def og_description(content)
     content = html_escape(strip_tags(content))
-    tag(:meta, { :property => "og:description", :content => truncate(content , :length => 100) }, true)
+    tag(:meta, { property: "og:description", content: truncate(content , length: 100) }, true)
   end
 
   def og_type(content = "article")
-    tag(:meta, { :property => "og:type", :content => content }, true)
+    tag(:meta, { property: "og:type", content: content }, true)
   end
 
   # 50x50 px ~ 150x150 px
   def og_image(content)
-    tag(:meta, { :property => "og:image", :content => content }, true)
+    tag(:meta, { property: "og:image", content: content }, true)
   end
 
   def og_url(content)
-    tag(:meta, { :property => "og:url", :content => content }, true)
+    tag(:meta, { property: "og:url", content: content }, true)
   end
 
   def og_site_name(content)
-    tag(:meta, { :property => "og:site_name", :content => content }, true)
+    tag(:meta, { property: "og:site_name", content: content }, true)
   end
 
   def og_fb_app_id(content)
-    tag(:meta, { :property => "fb:app_id", :content => content }, true)
+    tag(:meta, { property: "fb:app_id", content: content }, true)
   end
 
   def og_fb_admins(admins)
@@ -41,10 +41,10 @@ module OpenGraphHelper
     # See Issue #3
     if admins.is_a? Array
       admins.map { |admin|
-        tag(:meta, { :property => "fb:admins", :content => admin }, true)
+        tag(:meta, { property: "fb:admins", content: admin }, true)
       }.join.html_safe
     else
-      tag(:meta, { :property => "fb:admins", :content => admins }, true)
+      tag(:meta, { property: "fb:admins", content: admins }, true)
     end
   end
 
@@ -57,7 +57,7 @@ module OpenGraphHelper
       height = options.delete(:height)
       style = "border:none; overflow:hidden; width:#{width}px; height:#{height}px;"
       src = "https://www.facebook.com/plugins/#{plugin_name}.php?#{options.to_param}"
-      content_tag(:iframe, "", :src => src, :scrolling => "no", :frameborder => "0", :style => style, :allowtransparency => "true")
+      content_tag(:iframe, "", src: src, scrolling: "no", frameborder: "0", style: style, allowtransparency: "true")
     else
       raise "Unknown Social Plugin Version: #{SOCIAL_PLUGIN_VERSION}"
     end
@@ -95,8 +95,8 @@ module OpenGraphHelper
 
   def fb_comments(url, custom_options={})
     options = {
-      :href => url,
-      :num_posts => 10
+      href: url,
+      num_posts: 10
     }
 
     options.merge! custom_options
