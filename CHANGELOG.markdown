@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 0.3.0
+
+* **[removal]** Remove deprecated Like Box Plugin.(https://developers.facebook.com/docs/plugins/like-box-for-pages)
+* **[removal]** Remove deprecated Recommendations Feed Plugin.(https://developers.facebook.com/docs/plugins/recommendations)
+* **[feature]** Provide Page Plugin to replace Like Box Plugin.
+* **[refactor]** Update to Ruby 1.9 hash syntax.
+
 ## 0.2.0
 
 * **[bugfix]** Support standard array representation for `fb:admins`. Fixes #3.

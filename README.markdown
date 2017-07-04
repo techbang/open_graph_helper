@@ -3,7 +3,7 @@
 
 Common [Open Graph](http://developers.facebook.com/docs/opengraph/) meta tag and [Facebook Social Plugin](http://developers.facebook.com/docs/plugins/) tag helpers.
 
-There are only small subsets of tags are supported (for now). 
+There are only small subsets of tags are supported (for now).
 
 Pull requests are welcome.
 
@@ -17,7 +17,7 @@ Add this to your `Gemfile`:
 
 If you want to use the edge version on Github, specify the `:git` option.
 
-    gem 'open_graph_helper', :github => 'techbang/open_graph_helper'
+    gem 'open_graph_helper', github: 'techbang/open_graph_helper'
 
 And run
 
@@ -104,69 +104,45 @@ Usage: `fb_like(like_url, options={})`
 
 The default options are:
 
-    :send => false,
-    :layout => "button_count",
-    :show_faces => false,
-    :width => 90
+    layout: "button_count",
+    action: "like",
+    share: false,
+    show_faces: false,
+    width: 90
 
-For more options, see [Facebook Like Button Documentation](http://developers.facebook.com/docs/reference/plugins/like/)
+For more options, see [Facebook Like Button Documentation](https://developers.facebook.com/docs/plugins/like-button)
 
 Example:
 
 ``` ruby
 fb_like("http://example.com")
-#=> <div class="fb-like" data-href="http://example.com" data-layout="button_count" data-send="false" data-show-faces="false" data-width="90"></div>
+#=> <div class="fb-like" data-href="http://example.com" data-layout="button_count" data-action="like" data-share="false" data-show-faces="false" data-width="90"></div>
 
-fb_like("http://example.com", :width => 120, :layout => "standard")
-#=> <div class="fb-like" data-href="http://example.com" data-layout="standard" data-send="false" data-show-faces="false" data-width="120"></div>
+fb_like("http://example.com", width: 120, layout: "standard")
+#=> <div class="fb-like" data-href="http://example.com" data-layout="standard" data-action="like" data-share="false" data-show-faces="false" data-width="120"></div>
 ```
 
-### Like Box
+### Page
 
-Usage: `fb_like_box(page_url, options={})`
+Usage: `fb_page(fans_page_url, options={})`
 
 The default options are:
 
-    :width => 240,
-    :height => 65,
-    :show_faces => false,
-    :stream => false,
-    :header => true
+    small_header: true,
+    adapt_container_width: true,
+    hide_cover: false,
+    show_facepile: false
 
-For more options, see [Facebook Like Box Documentation](http://developers.facebook.com/docs/reference/plugins/like-box/)
+For more options, see [Facebook Page Plugin Documentation](https://developers.facebook.com/docs/plugins/page-plugin)
 
 Example:
 
 ``` ruby
-fb_like_box("http://www.facebook.com/example")
-#=> <div class="fb-like-box" data-header="true" data-height="65" data-href="http://www.facebook.com/example" data-show-faces="false" data-stream="false" data-width="240"></div>
+fb_page("https://www.facebook.com/facebook")
+#=> <div class="fb-page" data-href="https://www.facebook.com/facebook" data-small-header="true", data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/facebook" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/facebook">Facebook</a></blockquote></div>
 
-fb_like_box("http://www.facebook.com/example", :width => 180, :show_faces => true)
-#=> <div class="fb-like-box" data-header="true" data-height="65" data-href="http://www.facebook.com/example" data-show-faces="true" data-stream="false" data-width="180"></div>
-```
-
-### Recommendations
-
-Usage: `fb_recommendations(site_url, options={})`
-
-The default options are:
-
-    :width => 300,
-    :height => 380,
-    :header => false,
-    :colorscheme => "light",
-    :border_color => "#CCC"
-
-For more options, see [Facebook Recommendations Documentation](http://developers.facebook.com/docs/reference/plugins/recommendations/)
-
-Example:
-
-``` ruby
-fb_recommendations("www.example.com")
-#=> <div class="fb-recommendations" data-border-color="#CCC" data-colorscheme="light" data-header="false" data-height="380" data-site="www.example.com" data-width="300"></div>
-
-fb_recommendations("www.example.com", :header => true, :colorscheme => "dark")
-#=> <div class="fb-recommendations" data-border-color="#CCC" data-colorscheme="dark" data-header="true" data-height="380" data-site="www.example.com" data-width="300"></div>
+fb_page("https://www.facebook.com/facebook", small_header: false, width: 200, tabs: "timeline", adapt_container_width: false)
+#=> <div class="fb-page" data-href="https://www.facebook.com/facebook" data-small-header="false" data-width="200" data-tabs="timeline" data-adapt-container-width="false" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/facebook" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/facebook">Facebook</a></blockquote></div>
 ```
 
 # License
