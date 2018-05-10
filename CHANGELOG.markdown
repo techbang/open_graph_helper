@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.3.1
+
+* **[feature]** Add `dable_image` helper.
+
 ## 0.3.0
 
 * **[removal]** Remove deprecated Like Box Plugin.(https://developers.facebook.com/docs/plugins/like-box-for-pages)

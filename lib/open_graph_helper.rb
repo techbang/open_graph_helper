@@ -48,6 +48,10 @@ module OpenGraphHelper
     end
   end
 
+  def dable_image(content)
+    tag(:meta, { property: "dable:image", content: content }, true)
+  end
+
   def social_plugin(plugin_name, options)
     case SOCIAL_PLUGIN_VERSION
     when :html5
